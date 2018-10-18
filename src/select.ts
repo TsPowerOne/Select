@@ -9,10 +9,15 @@ export class Select{
     private changed = new Subject<any>();
     private selected = new Subject<any>();
     private sel:boolean = false;
+    private enab = new Subject<any>();
+    private disab = new Subject<any>();
+
 
     public updated$ = this.updated.asObservable();
     public changed$ = this.changed.asObservable();
     public selected$ = this.selected.asObservable();
+    public enabled$ = this.enab.asObservable();
+    public disabled$ = this.disab.asObservable();
 
     public selectedIndex:any;
     public selectedDisplay:any;
@@ -127,6 +132,7 @@ export class Select{
     removeData = ():void=>{
         this.Data = [];
         this.populate(false);
+        this.updated.next(true);
     }
     setClass = (Class:string)=>{
         this.node.classList.add(Class);
@@ -139,5 +145,15 @@ export class Select{
     }
     removeStyle = ()=>{
         this.node.removeAttribute("style");
+    }
+    enable = ():void =>{
+        this.node.disabled = false;
+        this.node.removeAttribute("disabled");
+        this.enab.next( { name:this.Name, enabled: true } );
+    }
+    disable = ():void =>{
+        this.node.disabled = true;
+        this.node.setAttribute("disabled", "disabled");
+        this.disab.next( { name:this.Name, enabled: false } );
     }
 }

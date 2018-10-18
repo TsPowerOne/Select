@@ -15,9 +15,13 @@ export declare class Select {
     private changed;
     private selected;
     private sel;
+    private enab;
+    private disab;
     updated$: import("rxjs/internal/Observable").Observable<any>;
     changed$: import("rxjs/internal/Observable").Observable<any>;
     selected$: import("rxjs/internal/Observable").Observable<any>;
+    enabled$: import("rxjs/internal/Observable").Observable<any>;
+    disabled$: import("rxjs/internal/Observable").Observable<any>;
     selectedIndex: any;
     selectedDisplay: any;
     constructor(Root: HTMLElement, Name: string, Index: string, Display: string, PreselectIndex?: string, Placeholder?: string, Group?: string, Data?: Array<any>, Id?: string, Class?: string, Style?: string);
@@ -39,4 +43,6 @@ export declare class Select {
     removeClass: (Class: string) => void;
     setStyle: (Style: string) => void;
     removeStyle: () => void;
+    enable: () => void;
+    disable: () => void;
 }
