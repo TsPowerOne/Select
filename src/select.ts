@@ -26,6 +26,7 @@ export class Select{
         private Display:string,
         private PreselectIndex?:string,
         private Placeholder:string = "Select an Item",
+        private Group?:string,
         private Data?:Array<any>,
         private Id?:string,
         private Class?:string,
@@ -58,8 +59,9 @@ export class Select{
         let id = (this.Id)?`id="${this.Id}"`:null;
         let classe = (this.Class)?`class="${this.Class}"`:null;
         let stile = (this.Style)?`style="${this.Style}"`:null;
+        let gruppo = (this.Group)?`data-group="${this.Group}"`:null;
 
-        let template = `<select name="${this.Name}" ${(id)?id:""} ${(classe)?classe:""} ${(stile)?stile:""} >
+        let template = `<select name="${this.Name}" ${(id)?id:""} ${(classe)?classe:""} ${(stile)?stile:""}  ${(gruppo)?gruppo:""}>
                         </select>`;
 
         this.node = htmlParse(template) as HTMLSelectElement;
@@ -109,11 +111,22 @@ export class Select{
     select = (Index:any):void=>{
         this.selItem(Index);
     }
-
+    setGroup = (group:string):void=> {
+        this.Group = group;
+        this.node.setAttribute("data-group", this.Group);
+    }
+    removeGroup = ():void =>{
+        this.Group = null;
+        this.node.removeAttribute("data-group");
+    }
     setData = (data:Array<any>):void=>{
         this.Data = data;
         this.populate(false);
         this.updated.next(true);
+    }
+    removeData = ():void=>{
+        this.Data = [];
+        this.populate(false);
     }
     setClass = (Class:string)=>{
         this.node.classList.add(Class);
