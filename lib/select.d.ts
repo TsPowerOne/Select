@@ -33,6 +33,7 @@ export declare class Select {
     private unselAll;
     private selItem;
     isSelected: () => boolean;
+    getSelected: () => any;
     unselect: () => void;
     select: (Index: any) => void;
     setGroup: (group: string) => void;

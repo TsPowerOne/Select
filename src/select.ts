@@ -109,6 +109,9 @@ export class Select{
     //shared method
     isSelected = ():boolean=> this.sel;
 
+    getSelected = ():any=>{
+        return {index:this.selectedIndex, display:this.selectedDisplay};
+    }
     unselect =():void=>{
         this.selItem("unselect");
     }
