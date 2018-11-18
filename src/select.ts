@@ -1,5 +1,6 @@
 import { htmlParse, empty} from '@tspower/core';
 import { Subject, timer } from 'rxjs';
+import { timingSafeEqual } from 'crypto';
 
 
 
@@ -102,8 +103,19 @@ export class Select{
     }
     private selItem =(value:string):void=>{
         this.unselAll();
-        let option = this.node.querySelector(`option[value="${value}"]`);
+        let option = this.node.querySelector(`option[value="${value}"]`) as HTMLOptionElement;
         option.setAttribute("selected", '');
+        
+        if(value!="unselect"){
+            let selezionato = this.Data.filter(e=>e.id == option.value);
+            if(selezionato){
+                this.selectedIndex = selezionato[this.Index];
+                this.selectedDisplay = selezionato[this.Display];
+                this.selected.next({index:this.selectedIndex, display:this.selectedDisplay});
+                this.changed.next({index:this.selectedIndex, display:this.selectedDisplay});
+            }
+        }
+        
     }
 
     //shared method
