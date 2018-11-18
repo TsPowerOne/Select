@@ -105,9 +105,9 @@ export class Select{
         this.unselAll();
         let option = this.node.querySelector(`option[value="${value}"]`) as HTMLOptionElement;
         option.setAttribute("selected", '');
-        
+
         if(value!="unselect"){
-            let selezionato = this.Data.filter(e=>e.id == option.value);
+            let selezionato = this.Data.filter(e=>e[this.Index] == option.value);
             if(selezionato){
                 this.selectedIndex = selezionato[this.Index];
                 this.selectedDisplay = selezionato[this.Display];
