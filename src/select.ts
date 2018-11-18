@@ -109,8 +109,8 @@ export class Select{
         if(value!="unselect"){
             let selezionato = this.Data.filter(e=>e[this.Index] == option.value);
             if(selezionato){
-                this.selectedIndex = selezionato[this.Index];
-                this.selectedDisplay = selezionato[this.Display];
+                this.selectedIndex = selezionato[0][this.Index];
+                this.selectedDisplay = selezionato[0][this.Display];
                 this.selected.next({index:this.selectedIndex, display:this.selectedDisplay});
                 this.changed.next({index:this.selectedIndex, display:this.selectedDisplay});
             }

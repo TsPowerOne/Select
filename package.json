@@ -1,6 +1,6 @@
 {
   "name": "@tspower/select",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "a simple select element",
   "main": "./lib/select.js",
   "types": "./lib/select.d.ts",
