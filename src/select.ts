@@ -1,7 +1,5 @@
 import { htmlParse, empty} from '@tspower/core';
 import { Subject, timer } from 'rxjs';
-import { timingSafeEqual } from 'crypto';
-
 
 
 export class Select{
@@ -56,7 +54,8 @@ export class Select{
                 this.sel = true;
                 this.selected.next(true);
             }
-            this.changed.next({index:this.selectedIndex, display:this.selectedDisplay});
+            let selezionato = this.Data.filter(e=>e[this.Index] ==this.selectedIndex);
+            this.changed.next({index:this.selectedIndex, display:this.selectedDisplay, rowData:selezionato[0]});
         });
 
     }
@@ -111,8 +110,9 @@ export class Select{
             if(selezionato){
                 this.selectedIndex = selezionato[0][this.Index];
                 this.selectedDisplay = selezionato[0][this.Display];
-                this.selected.next({index:this.selectedIndex, display:this.selectedDisplay});
-                this.changed.next({index:this.selectedIndex, display:this.selectedDisplay});
+                
+                this.selected.next({index:this.selectedIndex, display:this.selectedDisplay, rowData:selezionato[0]});
+                this.changed.next({index:this.selectedIndex, display:this.selectedDisplay, rowData:selezionato[0]});
             }
         }
         
@@ -122,7 +122,8 @@ export class Select{
     isSelected = ():boolean=> this.sel;
 
     getSelected = ():any=>{
-        return {index:this.selectedIndex, display:this.selectedDisplay};
+        let selezionato = this.Data.filter(e=>e[this.Index] ==this.selectedIndex);
+        return {index:this.selectedIndex, display:this.selectedDisplay, rowData:selezionato[0]};
     }
     unselect =():void=>{
         this.selItem("unselect");
