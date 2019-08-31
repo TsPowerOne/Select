@@ -1,9 +1,12 @@
 {
   "name": "@tspower/select",
-  "version": "1.5.0",
-  "description": "a simple select element",
+  "version": "1.5.1",
+  "description": "Add a select to your DOM",
   "main": "./lib/select.js",
   "types": "./lib/select.d.ts",
+  "repository": {
+    "url": "git+https://github.com/TsPowerOne/Select.git"
+  },
   "directories": {
     "doc": "docs",
     "lib": "lib",
@@ -13,24 +16,38 @@
     "setup": "npm install && git remote remove origin",
     "build": "tsc",
     "build-watch": "tsc --watch",
-    "test-only": "mocha --require ts-node/register test/**/*.ts",
+    "test-console": "mocha --require ts-node/register test/**/*.ts",
+    "test-only": "mocha --require ts-node/register test/**/*.ts --reporter mocha-junit-reporter",
     "pretest": "npm run build",
     "test": "npm run test-only",
-    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json "
+    "typedoc": "typedoc --out ./docs --mode file --tsconfig ./tsconfig.json "
   },
   "keywords": [],
-  "author": "Luigi Senzamici (luigisenzamici@gmail.com)",
+  "author": {
+    "name": "Luigi Senzamici [Pegaso Professional]",
+    "email": "luigisenzamici@gmail.com",
+    "url": "https://luigisenzamici.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.1.6",
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
-    "ts-node": "^7.0.1",
-    "typedoc": "^0.13.0"
+    "mocha-junit-reporter": "^1.23.1",
+    "ts-node": "^8.3.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.2"
   },
   "dependencies": {
-    "@tspower/core": "^1.5.0",
+    "@tspower/core": "^1.16.0",
     "rxjs": "^6.3.3"
+  },
+  "bugs": {
+    "url": "https://github.com/TsPowerOne/Http/issues"
+  },
+  "homepage": "https://tspowerone.github.io/Http/",
+  "publishConfig": {
+    "access": "public"
   }
 }

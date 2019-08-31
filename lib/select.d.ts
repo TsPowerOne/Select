@@ -17,11 +17,11 @@ export declare class Select {
     private sel;
     private enab;
     private disab;
-    updated$: import("rxjs/internal/Observable").Observable<any>;
-    changed$: import("rxjs/internal/Observable").Observable<any>;
-    selected$: import("rxjs/internal/Observable").Observable<any>;
-    enabled$: import("rxjs/internal/Observable").Observable<any>;
-    disabled$: import("rxjs/internal/Observable").Observable<any>;
+    updated$: import("rxjs").Observable<any>;
+    changed$: import("rxjs").Observable<any>;
+    selected$: import("rxjs").Observable<any>;
+    enabled$: import("rxjs").Observable<any>;
+    disabled$: import("rxjs").Observable<any>;
     selectedIndex: any;
     selectedDisplay: any;
     constructor(Root: HTMLElement, Name: string, Index: string, Display: string, PreselectIndex?: string, Placeholder?: string, Group?: string, Data?: Array<any>, Id?: string, Class?: string, Style?: string);

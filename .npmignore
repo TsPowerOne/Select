@@ -2,6 +2,7 @@ tsconfig.json
 package.json
 package-lock.json
 readme.md
+test-results.xml
 src/
 docs/
 test/
