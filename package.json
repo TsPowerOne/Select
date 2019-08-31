@@ -1,6 +1,6 @@
 {
   "name": "@tspower/select",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Add a select to your DOM",
   "main": "./lib/select.js",
   "types": "./lib/select.d.ts",
@@ -22,7 +22,10 @@
     "test": "npm run test-only",
     "typedoc": "typedoc --out ./docs --mode file --tsconfig ./tsconfig.json "
   },
-  "keywords": [],
+  "keywords": [
+    "select",
+    "combobox"
+  ],
   "author": {
     "name": "Luigi Senzamici [Pegaso Professional]",
     "email": "luigisenzamici@gmail.com",
