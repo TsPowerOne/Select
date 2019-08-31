@@ -1,6 +1,6 @@
 {
   "name": "@tspower/select",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Add a select to your DOM",
   "main": "./lib/select.js",
   "types": "./lib/select.d.ts",
@@ -47,9 +47,9 @@
     "rxjs": "^6.3.3"
   },
   "bugs": {
-    "url": "https://github.com/TsPowerOne/Http/issues"
+    "url": "https://github.com/TsPowerOne/Select/issues"
   },
-  "homepage": "https://tspowerone.github.io/Http/",
+  "homepage": "https://tspowerone.github.io/Select/",
   "publishConfig": {
     "access": "public"
   }
