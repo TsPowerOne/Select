@@ -1,6 +1,6 @@
 {
   "name": "@tspower/select",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Add a select to your DOM",
   "main": "./lib/select.js",
   "types": "./lib/select.d.ts",
